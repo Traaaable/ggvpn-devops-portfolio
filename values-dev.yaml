@@ -1,0 +1,5 @@
+replicaCount: 1
+pdb:
+  enabled: false
+pageContent: |
+  <!doctype html><html><body><h1>GG VPN DevOps lab — dev</h1></body></html>

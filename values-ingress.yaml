@@ -1,0 +1,8 @@
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: portfolio.example.test
+      paths:
+        - path: /
+          pathType: Prefix

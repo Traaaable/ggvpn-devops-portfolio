@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+dist/
+*.tgz
+.kube/
+*.db*
+*.sqlite*
+*.key
+*.pem
+*.tfstate*
+*.tfvars

@@ -1,0 +1,37 @@
+# Allowlist: COPY . . must never include runtime state, credentials or Git history.
+**
+!Dockerfile
+!requirements.txt
+!ansible-requirements.yml
+!main.py
+!storage.py
+!analytics.py
+!db_cli.py
+!ggvpn_cli.py
+!ggvpn
+!ggvpn.cmd
+!app/
+!app/**
+!assets/
+!assets/**
+!scrns/
+!scrns/**
+!index.html
+!deeplink.html
+!hiddify_dowl_scr.jpg
+!Пользовательское соглашение.txt
+!Политика конфеденциальности.txt
+# Apply exclusions again inside allowed directories.
+**/.env*
+**/__pycache__/
+**/*.py[cod]
+**/*.log
+**/*.db*
+**/*.sqlite*
+**/*.bak*
+**/*.backup*
+**/*.key
+**/*.pem
+**/*.p12
+**/*.pfx
+**/*~

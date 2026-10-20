@@ -1,0 +1,19 @@
+services:
+  monitor-agent:
+    image: "{{ monitor_agent_image }}"
+    container_name: "{{ monitor_agent_container_name }}"
+    restart: unless-stopped
+    network_mode: host
+    env_file:
+      - .env
+    volumes:
+      - /:/host/root:ro
+      - /proc:/host/proc:ro
+      - /run:/host/run:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /etc/letsencrypt:/host/etc/letsencrypt:ro
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

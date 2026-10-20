@@ -1,0 +1,10 @@
+---
+collections:
+  - name: community.docker
+    version: "4.8.1"
+
+  - name: community.general
+    version: "8.3.0"
+
+  - name: community.crypto
+    version: "2.17.1"

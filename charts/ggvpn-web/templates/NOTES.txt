@@ -1,0 +1,11 @@
+Release {{ .Release.Name }} is installed in {{ .Release.Namespace }}.
+
+Check the release:
+  helm test {{ .Release.Name }} -n {{ .Release.Namespace }} --logs
+
+Open locally:
+  kubectl -n {{ .Release.Namespace }} port-forward svc/{{ include "ggvpn-web.fullname" . }} 8080:{{ .Values.service.port }}
+  curl http://127.0.0.1:8080/
+
+Ingress requires an installed controller matching ingress.className.
+HPA requires the resource metrics API. See docs/RUNBOOK.md.

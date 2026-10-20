@@ -1,0 +1,9 @@
+**
+!docker/
+!docker/web/
+!docker/web/Dockerfile
+!docker/web/index.html
+!charts/
+!charts/ggvpn-web/
+!charts/ggvpn-web/files/
+!charts/ggvpn-web/files/nginx.conf

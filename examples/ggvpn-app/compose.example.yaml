@@ -1,0 +1,32 @@
+# Architecture excerpt. Requires the GG VPN source tree and a local .env.
+# Host administration is deliberately excluded from this web/bot/worker example.
+x-app: &app
+  build: .
+  restart: unless-stopped
+  env_file: .env
+  volumes:
+    - app-data:/app/data
+  logging:
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
+
+services:
+  bot:
+    <<: *app
+    environment:
+      APP_ROLE: bot
+  web:
+    <<: *app
+    environment:
+      APP_ROLE: web
+    ports:
+      - "127.0.0.1:18081:8000"
+  worker:
+    <<: *app
+    environment:
+      APP_ROLE: worker
+
+volumes:
+  app-data:
