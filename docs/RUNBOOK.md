@@ -39,6 +39,12 @@ helm --kube-context "$KUBE_CONTEXT" test demo -n portfolio-demo --logs
 Helm 4 — `--rollback-on-failure`; проверяйте `helm upgrade --help` своей версии.
 Helm rollback не откатывает внешнюю БД; в этом стенде БД нет.
 
+Тестовый Pod сохраняется после завершения, чтобы `helm test --logs` работал
+и на Helm 3, и на Helm 4. Следующий запуск теста удаляет предыдущий Pod
+через `before-hook-creation`. Интеграционный сценарий удаляет весь свой namespace.
+При работе в общем namespace после проверки можно удалить только тестовый Pod:
+`kubectl --context "$KUBE_CONTEXT" -n portfolio-demo delete pod demo-ggvpn-web-test`.
+
 ## Ingress и TLS
 
 ```bash
